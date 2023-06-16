@@ -1,4 +1,7 @@
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.function.Function;
 
@@ -41,6 +44,33 @@ public class Pochodna extends Podstawy {
 
 
     public void printinfo() {
+
+
+        {
+
+        System.out.println("podaj ścieżke do pliku ");
+        Scanner inp=new Scanner(System.in);
+       String  trace=inp.nextLine();
+
+
+
+        try {
+
+
+            String path = trace;
+            FileWriter filewriter = new FileWriter(path,true);
+            BufferedWriter bufferwriter= new BufferedWriter(filewriter);
+            System.out.println();
+            String resultendstring=String.valueOf(pochodna);
+            bufferwriter.write(resultendstring);
+            bufferwriter.newLine();
+            bufferwriter.close();
+        }catch (IOException e)
+        {
+            System.out.println("bład");
+        }
+
+    }
 
     }
 

@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Arc extends Trigonometric {
 
     public double alfa;
+    public double value;
+    public double radious,radious2,radious3;
     public double beta;
     public Arc(double alfa)
     {
@@ -17,23 +19,32 @@ public class Arc extends Trigonometric {
     }
     public void menu()
     {
+
+        double alfa;
+        double value;
+        double radious,radious2,radious3;
+        double beta;
         Scanner scan=new Scanner(System.in);
         int choice=scan.nextInt();
         System.out.println("podaj wartośc dla, której kąt chcesz wyznaczyc ");
-        double value=scan.nextDouble();
+       value=scan.nextDouble();
+
+        radious=Math.asin(value);
+        radious2=Math.acos(value);
+        radious3=Math.atan(value);
         switch(choice)
         {
             case 1:
-                double radious=Math.asin(value);
+
                 System.out.println("wartość kąta w radianach dla wartości tego sinusa wynosi : "+radious);
                 break;
             case 2:
-                double radious2=Math.acos(value);
-                System.out.println("wartość kąta w radianach dla wartości tego sinusa wynosi : "+radious2);
+
+                System.out.println("wartość kąta w radianach dla wartości tego cosinusa wynosi : "+radious2);
                 break;
             case 3:
-                double radious3=Math.atan(value);
-                System.out.println("wartość kąta w radianach dla wartości tego sinusa wynosi : "+radious3);
+
+                System.out.println("wartość kąta w radianach dla wartości tego tangensa wynosi : "+radious3);
                 break;
 
 

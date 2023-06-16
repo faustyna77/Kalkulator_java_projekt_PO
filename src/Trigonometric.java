@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class  Trigonometric implements Start {
 
     public double alfa;
+    public double wynik;
     public int var;
     public Trigonometric(double alfa)
 
@@ -40,19 +41,19 @@ public class  Trigonometric implements Start {
         {
             case 1:
             {
-                double wynik=Math.sin(alfa);
+               wynik=Math.sin(alfa);
                 System.out.println(wynik);
             }
             break;
             case 2:
-            {   double wynik=Math.cos(alfa);
+            {    wynik=Math.cos(alfa);
                 System.out.println(wynik);
             }
             break;
             case 3:
             {
-
-                System.out.println(Math.tan(alfa));
+                  wynik=Math.tan(alfa);
+                System.out.println(wynik);
             }
             break;
 
@@ -73,8 +74,32 @@ public class  Trigonometric implements Start {
     public void  result()
     {
 
+        {
 
 
+        System.out.println("podaj ścieżke do pliku ");
+        Scanner inp=new Scanner(System.in);
+       String  trace=inp.nextLine();
+
+
+
+        try {
+
+
+            String path = trace;
+            FileWriter filewriter = new FileWriter(path,true);
+            BufferedWriter bufferwriter= new BufferedWriter(filewriter);
+            System.out.println();
+            String resultendstring=String.valueOf(wynik);
+            bufferwriter.write(resultendstring);
+            bufferwriter.newLine();
+            bufferwriter.close();
+        }catch (IOException e)
+        {
+            System.out.println("bład");
+        }
+
+    }
 
 
 

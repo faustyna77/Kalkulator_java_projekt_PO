@@ -1,6 +1,9 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
-public class Poteguj extends Podstawy {
+public class Poteguj extends Podstawy implements Zapis {
 
 
     public double result;
@@ -25,7 +28,7 @@ public class Poteguj extends Podstawy {
         double podstawa=in.nextDouble();
         System.out.println("podaj wykładnik");
         double wykladnik=in.nextDouble();
-        double result=Math.pow(podstawa,wykladnik);
+        result=Math.pow(podstawa,wykladnik);
         System.out.println(result);
 
 
@@ -33,10 +36,41 @@ public class Poteguj extends Podstawy {
     }
     public  void printinfo()
     {
-            System.out.println("wynik to "+result);
+
     }
 
 
+
+    public void odczytajDane()
+    {
+
+        {
+
+
+            System.out.println("podaj ścieżke do pliku ");
+            Scanner inp=new Scanner(System.in);
+            String  trace=inp.nextLine();
+
+
+
+            try {
+
+
+                String path = trace;
+                FileWriter filewriter = new FileWriter(path,true);
+                BufferedWriter bufferwriter= new BufferedWriter(filewriter);
+                System.out.println();
+                String resultendstring=String.valueOf(result);
+                bufferwriter.write(resultendstring);
+                bufferwriter.newLine();
+                bufferwriter.close();
+            }catch (IOException e)
+            {
+                System.out.println("bład");
+            }
+
+        }
+    }
 
 
 }

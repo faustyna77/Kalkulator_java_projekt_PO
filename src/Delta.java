@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 public class Delta extends Podstawy{
 
@@ -26,7 +29,7 @@ public class Delta extends Podstawy{
         a=in.nextDouble();
         b=in.nextDouble();
         c=in.nextDouble();
-        System.out.println("Twoje równanie to "+a+"x^2"+b+"x"+c+"    "+"czy tak? t/n");
+        System.out.println("Twoje równanie to "+a+"x^2 + "+b+"x"+c+"    "+"");
         double delta=Math.pow(b,2)-4*a*c;
         System.out.println("Delta wynosi "+delta);
         if(delta>0)
@@ -52,7 +55,31 @@ public class Delta extends Podstawy{
     }
     public void printinfo()
     {
+        {
 
+        System.out.println("podaj ścieżke do pliku ");
+        Scanner inp=new Scanner(System.in);
+       String  trace=inp.nextLine();
+
+
+
+        try {
+
+
+            String path = trace;
+            FileWriter filewriter = new FileWriter(path,true);
+            BufferedWriter bufferwriter= new BufferedWriter(filewriter);
+            System.out.println();
+            String resultendstring=String.valueOf(x);
+            bufferwriter.write(resultendstring);
+            bufferwriter.newLine();
+            bufferwriter.close();
+        }catch (IOException e)
+        {
+            System.out.println("bład");
+        }
+
+    }
     }
 
 

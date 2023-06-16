@@ -1,8 +1,12 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Trigonometricdegree extends Trigonometric{
 
         public double variable;
+        public double wynik;
     public Trigonometricdegree(double alfa,double variable) {
 
         super(alfa);
@@ -38,17 +42,20 @@ public class Trigonometricdegree extends Trigonometric{
         {
             case 1:
             {
-                System.out.println(Math.sin(mathtodegree));
+                wynik=mathtodegree;
+                System.out.println(Math.sin(wynik));
             }
             break;
             case 2:
             {
-                System.out.println(Math.cos(mathtodegree));
+                wynik=mathtodegree;
+                System.out.println(Math.cos(wynik));
             }
             break;
             case 3:
             {
-                System.out.println(Math.tan(mathtodegree));
+                wynik=mathtodegree;
+                System.out.println(Math.tan(wynik));
             }
             break;
 
@@ -62,8 +69,37 @@ public class Trigonometricdegree extends Trigonometric{
     {
 
 
-       /* double [] result={Math.sin(alfa),Math.cos(alfa),Math.tan(alfa)};
-        return result[var-1];*/
+
+        {
+
+
+            System.out.println("podaj ścieżke do pliku ");
+            Scanner inp=new Scanner(System.in);
+            String  trace=inp.nextLine();
+
+
+
+            try {
+
+
+                String path = trace;
+                FileWriter filewriter = new FileWriter(path,true);
+                BufferedWriter bufferwriter= new BufferedWriter(filewriter);
+                System.out.println();
+                String resultendstring=String.valueOf(wynik);
+                bufferwriter.write(resultendstring);
+                bufferwriter.newLine();
+                bufferwriter.close();
+            }catch (IOException e)
+            {
+                System.out.println("bład");
+            }
+
+        }
+
+
+
+
 
 
 

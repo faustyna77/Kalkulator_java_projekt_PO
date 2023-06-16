@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.function.DoubleUnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,13 +18,15 @@ public class Main {
         Trigonometricdegree trigonometric=new Trigonometricdegree(45,3);
         Arc arc=new Arc(3);
         ArcDegree arcdegree=new ArcDegree(0.707);
+        Arc2 arc2=new Arc2(3);
+        Dzielenie dzielenie=new Dzielenie(2,2);
 
 
         System.out.println("podaj liczbe 1-jesli dodac, 2- jesli odjac " );
         System.out.println("3-potęgowanie  4-mnozenie  5-delta 6-pierwiastek 7-pochodna 8-logarytmy 9- jeśli zochcesz zobaczyć ostatnio zapisane dane");
         System.out.println("10-jeśli chcesz wykonać działania na liczbach zespolonych");
         System.out.println("11-jeśli chcesz usunąć 12- jesli chcesz utworzyć plik do zapisu wyników 13 -jeśli chcesz wyznaczyć wartośc funkcji trygonometrycznej dla radianów ");
-        System.out.println("14 - wartość kąta w radianch   15- wartośc kąta w stopniach ");
+        System.out.println("14 - wartość kąta w radianch   15- wartośc kąta w stopniach 16-dzielenie 17-reszta z dzielenia ");
         Scanner in =new Scanner(System.in);
         int y=in.nextInt();
         switch(y)
@@ -49,6 +50,7 @@ public class Main {
                 poteguj.operation();
                 poteguj.result();
                 poteguj.printinfo();
+                poteguj.odczytajDane();
                 break;
             case 4:
                 mnozenie.operation();;
@@ -68,6 +70,7 @@ public class Main {
                 break;
             case 7:
                 pochodna.result();
+                pochodna.printinfo();
                 break;
             case 8:
                 logarytmy.operation();
@@ -126,11 +129,14 @@ public class Main {
             case 13:
                 trigonometric.menu();
                 trigonometric.wybor();
+                trigonometric.result();
                 break;
             case 14:
 
-                arc.wybor();
-                arc.menu();
+
+                arc2.menu();
+                arc2.wybor();
+                arc2.result();
                 break;
 
             case 15:
@@ -141,8 +147,15 @@ public class Main {
 
                 arcdegree.wybor(beta);
                 break;
-
-
+            case 16:
+                dzielenie.wylicz();
+                dzielenie.zapiszinfo();
+                break;
+            case 17:
+                dzielenie.wyliczmodulo();
+                dzielenie.zapiszinfo();
+            default:
+                break;
 
 
 

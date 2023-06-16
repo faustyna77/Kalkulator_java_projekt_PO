@@ -97,6 +97,6 @@ public String trace;
     }
     public  void printinfo()
     {
-        System.out.println("wynik został zapisany do pliku "+trace);
+
     }
 }
